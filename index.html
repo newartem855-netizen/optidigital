@@ -618,6 +618,233 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
 @keyframes fi{from{opacity:0;}to{opacity:1;}}
 @keyframes sa{0%{opacity:0;transform:scaleY(0);transform-origin:top;}50%{opacity:1;transform:scaleY(1);}100%{opacity:0;transform:scaleY(0);transform-origin:bottom;}}
 
+/* ── CASES ENHANCED ── */
+#cases{ background:var(--bg2); }
+
+.cases-big-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:56px;
+}
+
+.cases-big-card{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  background:var(--card);
+  border:1px solid var(--line2);
+  border-radius:8px;
+  padding:32px 28px;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  transition:transform .3s var(--ease), border-color .3s, background .3s;
+}
+
+.cases-big-card::before{
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:3px;
+  background:linear-gradient(to right, var(--purple), var(--green));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+
+.cases-big-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(139,63,200,.04) 0%, rgba(61,214,56,.04) 100%);
+  opacity:0;
+  transition:opacity .3s;
+}
+
+.cases-big-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.2);
+  background:var(--bg3);
+}
+
+.cases-big-card:hover::before{ transform:scaleX(1); }
+.cases-big-card:hover::after{ opacity:1; }
+
+.cbc-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:20px;
+  position:relative;
+  z-index:1;
+}
+
+.cbc-icon{
+  width:48px; height:48px;
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+
+.cbc-ig{
+  background:rgba(139,63,200,.12);
+  border:1px solid rgba(139,63,200,.25);
+  color:var(--purple);
+}
+
+.cbc-tg{
+  background:rgba(61,214,56,.1);
+  border:1px solid rgba(61,214,56,.2);
+  color:var(--green);
+}
+
+.cbc-site{
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--line2);
+  color:var(--muted);
+}
+
+.cases-big-card:hover .cbc-ig{ background:rgba(139,63,200,.2); border-color:rgba(139,63,200,.4); }
+.cases-big-card:hover .cbc-tg{ background:rgba(61,214,56,.16); border-color:rgba(61,214,56,.35); }
+.cases-big-card:hover .cbc-site{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2); color:var(--white); }
+
+.cbc-arr{
+  font-size:1.2rem;
+  color:var(--muted2);
+  transition:transform .3s var(--ease), color .3s;
+  line-height:1;
+}
+
+.cases-big-card:hover .cbc-arr{
+  transform:translate(4px,-4px);
+  color:var(--green);
+}
+
+.cbc-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:8px;
+  position:relative; z-index:1;
+}
+
+.cbc-title{
+  font-size:1.25rem;
+  font-weight:800;
+  letter-spacing:-0.03em;
+  color:var(--white);
+  margin-bottom:12px;
+  line-height:1.2;
+  position:relative; z-index:1;
+}
+
+.cbc-desc{
+  font-size:.84rem;
+  color:var(--muted);
+  line-height:1.7;
+  flex:1;
+  position:relative; z-index:1;
+}
+
+.cbc-cta{
+  margin-top:24px;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:var(--muted2);
+  transition:color .3s;
+  position:relative; z-index:1;
+}
+
+.cases-big-card:hover .cbc-cta{ color:var(--green); }
+
+.cases-big-card--sites .cbc-label{ color:var(--muted); }
+.cases-big-card--sites:hover .cbc-cta{ color:var(--muted); }
+
+.cases-bottom{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:40px;
+  padding-top:40px;
+  border-top:1px solid var(--line);
+  flex-wrap:wrap;
+}
+
+.cases-bottom-left p{
+  font-size:.9rem;
+  color:var(--muted);
+  line-height:1.75;
+  margin-bottom:4px;
+}
+
+.cases-bottom-left a{
+  color:var(--green);
+  text-decoration:none;
+  border-bottom:1px solid rgba(61,214,56,.3);
+  transition:border-color .2s;
+}
+
+.cases-bottom-left a:hover{ border-color:var(--green); }
+
+.cases-bottom-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:flex-start;
+}
+
+/* ── WORKS / CASES ── */
+.works-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:48px;}
+.work-card{background:var(--bg2);display:flex;flex-direction:column;}
+.work-preview-link{display:block;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;}
+.work-browser-bar{
+  display:flex;align-items:center;gap:10px;
+  background:#1a1a1a;border-bottom:1px solid var(--line);
+  padding:10px 14px;
+}
+.wbb-dots{display:flex;gap:5px;}
+.wbb-dots span{width:9px;height:9px;border-radius:50%;background:var(--muted2);}
+.wbb-dots span:nth-child(1){background:#ff5f57;}
+.wbb-dots span:nth-child(2){background:#ffbd2e;}
+.wbb-dots span:nth-child(3){background:#28c840;}
+.wbb-url{flex:1;font-size:11px;color:var(--muted2);background:var(--bg3);padding:4px 10px;border-radius:3px;text-align:center;letter-spacing:.01em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.wbb-open{font-size:12px;color:var(--muted2);transition:color .2s;}
+.work-preview-link:hover .wbb-open{color:var(--green);}
+.work-screen{height:260px;overflow:hidden;position:relative;transition:transform .4s var(--ease);}
+.work-preview-link:hover .work-screen{transform:scale(1.02);}
+.ws-inner{padding:20px 18px;height:100%;display:flex;flex-direction:column;gap:14px;}
+.ws-topbar{display:flex;align-items:center;justify-content:space-between;}
+.ws-logo-txt{font-size:14px;font-weight:800;letter-spacing:-0.03em;}
+.ws-nav{display:flex;gap:6px;}
+.ws-nav span{width:28px;height:3px;background:var(--line2);border-radius:2px;}
+.ws-hero-area{display:flex;flex-direction:column;gap:8px;flex:1;}
+.ws-tag-pill{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);border:1px solid rgba(61,214,56,.25);padding:3px 10px;border-radius:20px;}
+.ws-big-title{font-size:2rem;font-weight:900;letter-spacing:-0.05em;line-height:1;color:var(--white);}
+.ws-desc-line{font-size:11px;color:var(--muted);}
+.ws-action-row{display:flex;gap:8px;margin-top:4px;}
+.ws-pill-green{font-size:10px;font-weight:700;background:var(--green);color:#000;padding:6px 12px;border-radius:3px;}
+.ws-pill-outline{font-size:10px;font-weight:500;border:1px solid var(--line2);color:var(--muted);padding:5px 12px;border-radius:3px;}
+.ws-cards-row{display:flex;gap:6px;}
+.ws-mini-card{flex:1;background:var(--bg3);border:1px solid var(--line);font-size:10px;color:var(--muted);padding:8px;border-radius:3px;text-align:center;}
+.ws-gallery-row{display:flex;gap:6px;}
+.ws-gal-block{flex:1;background:var(--bg3);border:1px solid var(--line);font-size:9px;color:var(--muted2);padding:10px 6px;border-radius:3px;text-align:center;}
+.work-meta{padding:24px 24px 28px;border-top:1px solid var(--line);}
+.work-tags-row{display:flex;gap:6px;margin-bottom:12px;}
+.wtag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);border:1px solid var(--line);padding:3px 10px;border-radius:20px;}
+.work-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.work-title-row h3{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--white);}
+.work-ext{font-size:1.1rem;color:var(--muted2);transition:color .2s,transform .2s;display:inline-block;}
+.work-preview-link:hover ~ .work-meta .work-ext,
+.work-title-row:hover .work-ext{color:var(--green);transform:translate(2px,-2px);}
+.work-meta p{font-size:.83rem;color:var(--muted);line-height:1.65;}
+.cases-more{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;background:var(--bg3);border:1px solid var(--line);flex-wrap:wrap;}
+.cases-more p{font-size:.9rem;color:var(--muted);}
+.cases-more-btns{display:flex;gap:10px;flex-wrap:wrap;}
+
 /* ── PRICING GRID ── */
 #pricing{background:var(--bg2);}
 .pricing-grid{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -661,6 +888,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   .pc-body{grid-template-columns:1fr!important;}
 }
 @media(max-width:900px){
+  .works-grid{grid-template-columns:1fr;}
   section{padding:80px 28px;}
   header,#hdr{padding:0 28px;}
   .pgrid{grid-template-columns:repeat(2,1fr);}
@@ -984,35 +1212,105 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
 <!-- ── CASES ── -->
 <section id="cases">
   <div class="tag r">Кейси</div>
-  <h2 class="r">Наші роботи</h2>
-  <p class="s-sub r d1">Наші кейси та приклади робіт ви можете переглянути в наших соціальних мережах.</p>
-  <div class="cases-social r d2">
-    <a href="https://www.instagram.com/optidigital2026/" class="social-card">
-      <div class="social-card-icon sc-ig">📷</div>
-      <div class="social-card-text">
-        <h3>Instagram</h3>
-        <p>Проєкти, результати, приклади digital-структури</p>
+  <h2 class="r">Приклади робіт</h2>
+  <p class="s-sub r d1">Реальні проєкти які ми реалізували. Більше робіт — в Instagram та Telegram.</p>
+
+  <div class="works-grid">
+
+    <div class="work-card r d1">
+      <a href="https://defolixx.github.io/itpizza/" target="_blank" class="work-preview-link">
+        <div class="work-browser-bar">
+          <div class="wbb-dots"><span></span><span></span><span></span></div>
+          <div class="wbb-url">defolixx.github.io/itpizza</div>
+          <span class="wbb-open">↗</span>
+        </div>
+        <div class="work-screen" style="background:#0d0d0d;">
+          <div class="ws-inner">
+            <div class="ws-topbar">
+              <div class="ws-logo-txt" style="color:#3dd638;">itPizza</div>
+              <div class="ws-nav"><span></span><span></span><span></span></div>
+            </div>
+            <div class="ws-hero-area">
+              <div class="ws-tag-pill">Кафе · Київ</div>
+              <div class="ws-big-title">itPizza</div>
+              <div class="ws-desc-line">Смачно • Затишно • Домашньо</div>
+              <div class="ws-action-row">
+                <div class="ws-pill-green">Переглянути меню</div>
+                <div class="ws-pill-outline">Подзвонити</div>
+              </div>
+            </div>
+            <div class="ws-cards-row">
+              <div class="ws-mini-card">Атмосфера</div>
+              <div class="ws-mini-card">Сервіс</div>
+              <div class="ws-mini-card">Швидкість</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="work-meta">
+        <div class="work-tags-row">
+          <span class="wtag">Сайт</span>
+          <span class="wtag">Ресторан</span>
+        </div>
+        <div class="work-title-row">
+          <h3>itPizza</h3>
+          <a href="https://defolixx.github.io/itpizza/" target="_blank" class="work-ext">↗</a>
+        </div>
+        <p>Сайт піцерії: меню, контакти, локація. Чітка структура і швидке завантаження.</p>
       </div>
-      <span class="social-card-arrow">↗</span>
-    </a>
-    <a href="https://t.me/+VSUykAZSD7cyYTMy" class="social-card">
-      <div class="social-card-icon sc-tg">✈</div>
-      <div class="social-card-text">
-        <h3>Telegram канал</h3>
-        <p>Кейси, розбори, системний підхід до маркетингу</p>
+    </div>
+
+    <div class="work-card r d2">
+      <a href="https://defolixx.github.io/SunSity/" target="_blank" class="work-preview-link">
+        <div class="work-browser-bar">
+          <div class="wbb-dots"><span></span><span></span><span></span></div>
+          <div class="wbb-url">defolixx.github.io/SunSity</div>
+          <span class="wbb-open">↗</span>
+        </div>
+        <div class="work-screen" style="background:#0d0d0d;">
+          <div class="ws-inner">
+            <div class="ws-topbar">
+              <div class="ws-logo-txt" style="color:#f5a623;">Sun City</div>
+              <div class="ws-nav"><span></span><span></span><span></span></div>
+            </div>
+            <div class="ws-hero-area">
+              <div class="ws-tag-pill" style="border-color:rgba(245,166,35,.35);color:#f5a623;">Кафе · Банкети · Київ</div>
+              <div class="ws-big-title" style="color:#f5a623;">Sun City</div>
+              <div class="ws-desc-line">Смачно • Затишно • Домашньо</div>
+              <div class="ws-action-row">
+                <div class="ws-pill-green" style="background:#f5a623;">Переглянути меню</div>
+                <div class="ws-pill-outline">068 934 64 64</div>
+              </div>
+            </div>
+            <div class="ws-gallery-row">
+              <div class="ws-gal-block">Основний зал</div>
+              <div class="ws-gal-block">Банкетний зал</div>
+              <div class="ws-gal-block">Бар</div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="work-meta">
+        <div class="work-tags-row">
+          <span class="wtag">Сайт</span>
+          <span class="wtag">Ресторан</span>
+          <span class="wtag">Банкети</span>
+        </div>
+        <div class="work-title-row">
+          <h3>Sun City Cafe</h3>
+          <a href="https://defolixx.github.io/SunSity/" target="_blank" class="work-ext">↗</a>
+        </div>
+        <p>Сайт кафе з банкетними залами: галерея, меню, контакти та запис на заходи.</p>
       </div>
-      <span class="social-card-arrow">↗</span>
-    </a>
+    </div>
+
   </div>
-  <div class="cases-note r d3">
-    <p>Ми регулярно публікуємо: <strong>проєкти, результати оптимізації, приклади digital-структури, візуальні рішення.</strong></p>
-    <div class="cases-tags">
-      <span class="ctag">Салони краси</span>
-      <span class="ctag">Косметологи</span>
-      <span class="ctag">Nail-студії</span>
-      <span class="ctag">Масаж</span>
-      <span class="ctag">Brow-майстри</span>
-      <span class="ctag">Естетичні клініки</span>
+
+  <div class="cases-more r d3">
+    <p>Більше кейсів — в наших соціальних мережах</p>
+    <div class="cases-more-btns">
+      <a href="https://www.instagram.com/optidigital2026/" target="_blank" class="btn-ghost-purple">Instagram ↗</a>
+      <a href="https://t.me/+VSUykAZSD7cyYTMy" target="_blank" class="btn-ghost">Telegram канал ↗</a>
     </div>
   </div>
 </section>
